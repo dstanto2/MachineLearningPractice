@@ -1,6 +1,6 @@
 
 
-
+import os
 import numpy as np
 import pandas as pd
 import torch
@@ -12,7 +12,8 @@ import gradientDescent as gd
 
 
 ##### load data #####
-data = pd.read_csv('/home/dstanto2/Documents/GettingAJob/Online Courses/Linear Regression Assignment/ex1data1.txt')
+current_directory = os.getcwd()
+data = pd.read_csv(os.getcwd() + '/ex1data1.txt')
 data.columns = ['X', 'y']
 # print(data)
 X = torch.tensor([np.array(torch.ones(data.shape[0])), np.array(torch.tensor(data['X'].values))]).transpose(0, 1)
